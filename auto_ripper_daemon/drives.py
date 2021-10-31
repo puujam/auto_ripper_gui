@@ -9,12 +9,7 @@ def get_wmi_handle():
     
     return _wmi_handle
 
-def list_all_removable_drives():
-    results = list()
+def list_all_cd_drives():
     wmi_handle = get_wmi_handle()
 
-    for drive in wmi_handle.Win32_LogicalDisk():
-        if drive.DriveType == 2: # 2 is Removable Disk apparently
-            results.append( drive )
-    
-    return results
+    return wmi_handle.Win32_CDRomDrive()
