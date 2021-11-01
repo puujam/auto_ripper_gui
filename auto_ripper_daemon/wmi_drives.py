@@ -4,6 +4,7 @@ _wmi_handle = None
 
 def get_wmi_handle():
     global _wmi_handle
+
     if not _wmi_handle:
         _wmi_handle = wmi.WMI()
     
